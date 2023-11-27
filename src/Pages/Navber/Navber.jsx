@@ -11,13 +11,13 @@ const Navber = () => {
     }
     return (
         <div className="navber">
-            <div className="navbar bg-transparent bg-white shadow-2xl text-black px:0 lg:px-32">
+            <div className="navbar bg-transparent bg-fuchsia-950 rounded-b-3xl shadow-2xl text-black px:0 lg:px-32">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-black  rounded-box w-72">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-white rounded-box w-72">
                             <NavLink to='/'><a>Home</a></NavLink>
                             <NavLink to='/addBooks'><a>Pet Listing</a></NavLink>
                             <NavLink to='/allBooks'><a>DonationCampaigns</a></NavLink>
@@ -25,12 +25,12 @@ const Navber = () => {
                     </div>
                     <div className='flex items-center'>
                         <img src="https://i.ibb.co/qpW9HhV/Screenshot-2023-11-25-003802-removebg-preview.png" className='w-[76px]' alt="" />
-                        <a className="normal-case text-sky-600 font-bold text-2xl">Pet adoption!</a>
+                        <a className="normal-case text-teal-300 font-bold text-2xl">Pet adoption!</a>
                     </div>
 
                 </div>
                 <div className="navbar-center hidden lg:flex ">
-                    <ul className="menu menu-horizontal text-xl gap-5 px-1 items-center">
+                    <ul className="menu menu-horizontal text-xl text-white gap-5 px-1 items-center">
                         <NavLink to='/'><a>Home</a></NavLink>
                         <NavLink to='/addBooks'><a>Pet Listing</a></NavLink>
                         <NavLink to='/allBooks'><a>DonationCampaigns</a></NavLink>
@@ -54,7 +54,7 @@ const Navber = () => {
                                         </div>
                                         <div className="divider"></div>
                                     </a>
-                                    <Link to="/dashboard">
+                                    <Link to="/dashboard/myPet">
                                         <a className="flex items-center ml-2 p-3 text-sm  text-blue-900 capitalize transition-colors duration-300 transform hover:bg-gray-300 hover:rounded-xl">
                                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path

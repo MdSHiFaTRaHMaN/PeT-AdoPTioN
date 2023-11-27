@@ -6,12 +6,13 @@ import Swal from "sweetalert2";
 import { FaTransgenderAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import { useForm } from "react-hook-form";
 
 // const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 // const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_api}`;
 const AddToPet = () => {
     const {user} = useContext(AuthContext);
-    console.log(user.displayName)
+    const { refresh  } = useForm();
     const [description, setDescription] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedLocation, setSelectedLocation] = useState(null);
@@ -20,9 +21,9 @@ const AddToPet = () => {
 
 
     const petCategories = [
-        { value: 'dogs', label: 'Dog' },
-        { value: 'cats', label: 'Cat' },
-        { value: 'birds', label: 'Bird' },
+        { value: 'Dog', label: 'Dog' },
+        { value: 'Cat', label: 'Cat' },
+        { value: 'Bird', label: 'Bird' },
     ];
     const handleCategoryChange = (selectedOption) => {
         setSelectedCategory(selectedOption);
@@ -39,22 +40,22 @@ const AddToPet = () => {
         setSelectedLocation(selectedOption);
     };
     const genderOptions = [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-        { value: 'other', label: 'Other' },
+        { value: 'Male', label: 'Male' },
+        { value: 'Female', label: 'Female' },
+        { value: 'Other', label: 'Other' },
     ];
     const handleGenderChange = (selectedOption) => {
         setSelectedGender(selectedOption);
     };
     const colorOptions = [
-        { value: 'black', label: 'Black' },
-        { value: 'white', label: 'White' },
-        { value: 'brown', label: 'Brown' },
-        { value: 'gray', label: 'Gray' },
-        { value: 'cream', label: 'Cream' },
-        { value: 'calico', label: 'Calico' },
-        { value: 'tabby', label: 'Tabby' },
-        { value: 'brindle', label: 'Brindle' },
+        { value: 'Black', label: 'Black' },
+        { value: 'White', label: 'White' },
+        { value: 'Brown', label: 'Brown' },
+        { value: 'Gray', label: 'Gray' },
+        { value: 'Cream', label: 'Cream' },
+        { value: 'Calico', label: 'Calico' },
+        { value: 'Tabby', label: 'Tabby' },
+        { value: 'Brindle', label: 'Brindle' },
     ];
     const handleColorChange = (selectedOption) => {
         setSelectedColor(selectedOption);
@@ -110,6 +111,7 @@ const AddToPet = () => {
                         confirmButtonText: "Yes, Add Book!"
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            refresh()
                             Swal.fire({
                                 title: "Added!",
                                 text: "Your Book has been Added.",

@@ -19,7 +19,7 @@ const Navber = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-white rounded-box w-72">
                             <NavLink to='/'><a>Home</a></NavLink>
-                            <NavLink to='/addBooks'><a>Pet Listing</a></NavLink>
+                            <NavLink to='/petList'><a>Pet Listing</a></NavLink>
                             <NavLink to='/allBooks'><a>DonationCampaigns</a></NavLink>
                         </ul>
                     </div>
@@ -32,7 +32,7 @@ const Navber = () => {
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal text-xl text-white gap-5 px-1 items-center">
                         <NavLink to='/'><a>Home</a></NavLink>
-                        <NavLink to='/addBooks'><a>Pet Listing</a></NavLink>
+                        <NavLink to='/petList'><a>Pet Listing</a></NavLink>
                         <NavLink to='/allBooks'><a>DonationCampaigns</a></NavLink>
                     </ul>
                 </div>

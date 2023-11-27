@@ -7,6 +7,7 @@ import DashBoardLayout from "../Layouts/DashBoardLayout";
 import AddToPet from "../DashBoard/AddToPet/AddToPet";
 import MyAddedPet from "../DashBoard/MyAddedPet/MyAddedPet";
 import PetDetails from "../Components/PetDetails/PetDetails";
+import PetList from "../Components/PetList/PetList";
 
 
 const Router = createBrowserRouter([
@@ -29,6 +30,11 @@ const Router = createBrowserRouter([
             {
                 path: '/petDetails/:id',
                 element: <PetDetails></PetDetails>,
+                loader: () => fetch(`http://localhost:5000/pet`)
+            },
+            {
+                path: '/petList',
+                element: <PetList></PetList>,
                 loader: () => fetch(`http://localhost:5000/pet`)
             }
 

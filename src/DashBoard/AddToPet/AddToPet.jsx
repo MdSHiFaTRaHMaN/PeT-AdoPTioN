@@ -6,24 +6,25 @@ import Swal from "sweetalert2";
 import { FaTransgenderAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/Authprovider";
-import { useForm } from "react-hook-form";
+import moment from "moment/moment";
 
 // const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 // const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_api}`;
 const AddToPet = () => {
-    const {user} = useContext(AuthContext);
-    const { refresh  } = useForm();
+    const { user } = useContext(AuthContext);
     const [description, setDescription] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [selectedGender, setSelectedGender] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
+    const [longDescription, setLongDescription] = useState('');
 
 
     const petCategories = [
         { value: 'Dog', label: 'Dog' },
         { value: 'Cat', label: 'Cat' },
         { value: 'Bird', label: 'Bird' },
+        { value: 'Rabbit', label: 'Rabbit' },
     ];
     const handleCategoryChange = (selectedOption) => {
         setSelectedCategory(selectedOption);
@@ -66,6 +67,10 @@ const AddToPet = () => {
         setDescription(event.target.value);
     };
 
+    const handleLongDescriptionChange = (event) => {
+        setLongDescription(event.target.value);
+    };
+
     const handleAddPet = e => {
         e.preventDefault();
         const form = e.target;
@@ -76,12 +81,13 @@ const AddToPet = () => {
         const location = form.location.value;
         const category = form.category.value;
         const discription = form.discription.value;
+        const longDescription = form.longDescription.value;
         const color = form.color.value;
         const gender = form.gender.value;
         const email = user.email;
         const displayName = user.displayName;
-
-        const petDetails = { name, image, age, location, category, discription, color, gender, email, displayName };
+        const currentDateTime = moment().format('MMMM Do YYYY, h:mm a');
+        const petDetails = { name, image, age, location, category, discription, longDescription, color, gender, email, displayName, currentDateTime };
         console.log(petDetails);
 
         fetch('http://localhost:5000/pet', {
@@ -111,7 +117,6 @@ const AddToPet = () => {
                         confirmButtonText: "Yes, Add Book!"
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            refresh()
                             Swal.fire({
                                 title: "Added!",
                                 text: "Your Book has been Added.",
@@ -129,10 +134,13 @@ const AddToPet = () => {
     }
 
     return (
-        <div>
-            <section className="bg-white">
-                <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-                    <form className="w-full max-w-md" onSubmit={handleAddPet}>
+        <div className="flex">
+            <div>
+                <img src="https://i.ibb.co/WxDx79V/Screenshot-2023-11-29-002434.png" alt="" />
+            </div>
+            <section className="bg-white ml-0 lg:ml-">
+                <div className="container  flex items-center justify-center min-h-screen px-6 mx-auto">
+                    <form className="w-full  max-w-md" onSubmit={handleAddPet}>
                         <div className="flex items-center justify-center mt-6">
                             <a className="w-2/3 pb-4 font-semibold text-3xl text-center text-blue-900 capitalize border-b border-teal-900">
                                 Add To Pet
@@ -250,13 +258,26 @@ const AddToPet = () => {
                             <textarea
                                 className="border pt-2 pl-2 border-gray-700  mt-3 rounded"
                                 id="petDescription"
-                                rows="4"
+                                rows="2"
                                 cols="48"
                                 name="discription"
                                 required
                                 value={description}
                                 onChange={handleDescriptionChange}
                                 placeholder="Enter a short description or note about the pet..."
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                                className="border pt-2 pl-2 border-gray-700  mt-3 rounded"
+                                id="longDescription"
+                                name="longDescription"
+                                required
+                                value={longDescription}
+                                onChange={handleLongDescriptionChange}
+                                rows="4"
+                                cols="48"
+                                placeholder="Write detailed information about the pet here..."
                             />
                         </div>
                         <div className="mt-6">

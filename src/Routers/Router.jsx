@@ -8,7 +8,10 @@ import AddToPet from "../DashBoard/AddToPet/AddToPet";
 import MyAddedPet from "../DashBoard/MyAddedPet/MyAddedPet";
 import PetDetails from "../Components/PetDetails/PetDetails";
 import PetList from "../Components/PetList/PetList";
-
+import DogCategory from "../Pages/PetCategory/DogCategory/DogCategory";
+import CatCategory from "../Pages/PetCategory/CatCategory/CatCategory";
+import RabbitCategory from "../Pages/PetCategory/RabbitCategory/RabbitCategory";
+import UpdatePet from "../Components/UpdatePet/UpdatePet"
 
 const Router = createBrowserRouter([
     {
@@ -36,6 +39,23 @@ const Router = createBrowserRouter([
                 path: '/petList',
                 element: <PetList></PetList>,
                 loader: () => fetch(`http://localhost:5000/pet`)
+            },
+            {
+                path: '/dog',
+                element: <DogCategory></DogCategory>
+            },
+            {
+                path: '/cat',
+                element: <CatCategory></CatCategory>
+            },
+            {
+                path: '/rabbit',
+                element: <RabbitCategory></RabbitCategory>
+            },
+            {
+                path: '/updatePet/:id',
+                element: <UpdatePet></UpdatePet>,
+                loader: ({params}) => fetch(`http://localhost:5000/pet/${params.id}`)
             }
 
         ]

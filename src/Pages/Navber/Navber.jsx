@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/Authprovider";
 import { useContext } from "react";
-
+import "./Navber.css";
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleSignOut = () => {
@@ -10,8 +10,8 @@ const Navber = () => {
             .catch()
     }
     return (
-        <div className="navber">
-            <div className="navbar bg-transparent bg-fuchsia-950 rounded-b-3xl shadow-2xl text-black px:0 lg:px-32">
+        <div className="navber sticky top-0 z-30">
+            <div className="navbar backGround rounded-b-3xl shadow-2xl text-black px:0 lg:px-32">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

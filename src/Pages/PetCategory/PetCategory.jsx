@@ -6,34 +6,34 @@ const PetCategory = () => {
         <div className="container px-5 py-7 mx-auto">
             <div className="flex flex-wrap  text-center">
                 <div className="p-4 md:w-1/4 sm:w-1/2 w-full h-28">
-                    <Link to='/history'>
+                    <Link to='/dog'>
                         <div className="px-4 py-6 bg-white rounded-lg shadow-xl shadow-slate-400">
                             <img src="https://i.ibb.co/ZMW1Y8N/Screenshot-2023-11-25-022538-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
-                            <h2 className="title-font font-medium text text-3xl text-gray-900">DOG</h2>
+                            <h2 className="title-font font-medium text text-3xl text-gray-900">DOGS</h2>
                         </div>
                     </Link>
                 </div>
                 <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <Link to='/novel'>
+                    <Link to='/cat'>
                         <div className="shadow-xl shadow-slate-400 bg-white px-4 py-6 rounded-lg">
                             <img src="https://i.ibb.co/pvxwW3m/Screenshot-2023-11-25-023051-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
-                            <h2 className="title-font font-medium text-3xl text-gray-900">CAT</h2>
+                            <h2 className="title-font font-medium text-3xl text-gray-900">CATS</h2>
                         </div>
                     </Link>
                 </div>
                 <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <Link to='/thriler'>
+                    <Link to='/rabbit'>
                         <div className="shadow-xl shadow-slate-400 bg-white px-4 py-6 rounded-lg">
-                            <img src="https://i.ibb.co/N2BsTX2/Screenshot-2023-11-25-023617-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
-                            <h2 className="title-font font-medium text-3xl text-gray-900">Other Pet</h2>
+                            <img src="https://i.ibb.co/26CS7Lv/Screenshot-2023-11-29-015052-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
+                            <h2 className="title-font font-medium text-3xl text-gray-900">RABBITS</h2>
                         </div>
                     </Link>
                 </div>
                 <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
                     <Link to='/drama'>
                         <div className="px-4 shadow-xl shadow-slate-400 bg-white py-6 rounded-lg">
-                            <img src="https://i.ibb.co/hWszXDS/pet-house-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
-                            <h2 className="title-font font-medium text-3xl text-gray-900">Services</h2>
+                            <img src="https://i.ibb.co/KbRCpdZ/Screenshot-2023-11-29-015406-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
+                            <h2 className="title-font font-medium text-3xl text-gray-900">BIRDS</h2>
                         </div>
                     </Link>
                 </div>

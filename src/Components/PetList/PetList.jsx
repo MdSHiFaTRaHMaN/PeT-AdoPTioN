@@ -13,11 +13,11 @@ const PetList = () => {
         return nameMatches && categoryMatches;
     });
 
-    const petCategories = ["All", "Dog", "Cat", "Bird"];
+    const petCategories = ["All", "Dog", "Cat", "Bird", "Rabbit"];
 
     return (
         <div>
-            <div className="my-7 flex justify-between w-10/12 mx-auto">
+            <div className="my-7 grid lg:flex justify-between w-10/12 mx-auto">
                 <div className="relative flex items-center mt-2">
                     <span className="absolute">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mt-2 mx-3 text-gray-400 dark:text-gray-500">
@@ -32,7 +32,7 @@ const PetList = () => {
                         className="block w-[400px]  py-2.5 text-gray-700 placeholder-gray-400/70 bg-white border border-gray-200 rounded-lg pl-11 pr-5 rtl:pr-11 rtl:pl-5   focus:border-blue-400  focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
                 <select
-                    className="select select-bordered select-info w-full max-w-xs ml-2"
+                    className="select select-bordered mt-4 lg:mt-0 select-info w-full max-w-xs ml-2"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                 >
@@ -72,7 +72,7 @@ const PetList = () => {
                                         <MdLocationOn className="text-blue-700 text-2xl" />
                                         <h3>{pet.location}</h3>
                                     </div>
-                                    <Link to={`petDetails/${pet._id}`}>
+                                    <Link to={`/petDetails/${pet._id}`}>
                                         <button className="py-2 px-4 bg-sky-500 rounded-lg text-white border-sky-500">
                                             Show Details
                                         </button>

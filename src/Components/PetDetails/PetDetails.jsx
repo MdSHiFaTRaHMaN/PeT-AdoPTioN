@@ -5,7 +5,7 @@ const PetDetails = () => {
     const { id } = useParams();
     const idInt = id;
     const pet = petDetails.find((details) => details._id === idInt);
-    const { name, image, color, age, gender, location, category, discription } = pet;
+    const { name, image, color, age, gender, location, category, discription, longDescription } = pet;
     return (
         <section className="">
             <div className="container px-6 py-10 w-10/12 mx-auto">
@@ -54,7 +54,7 @@ const PetDetails = () => {
                 <div className="mt-10 bg-white p-5 rounded">
                     <h1 className="text-3xl font-bold text-purple-700">Discriptions</h1>
                     <h4 className="my-3 font-semibold">{discription}</h4>
-                    <p>Miny is very sweet and cuddly and absolutely loves to play. She's full of energy and would love another kitten/young cat to play with or someone home a lot. </p>
+                    <p> {longDescription}</p>
                     <div className="divider"></div>
                     <h2 className="text-xl font-semibold text-blue-700 my-4">Favourite Things</h2>
                     <div className="grid lg:flex gap-4">

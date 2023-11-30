@@ -30,7 +30,7 @@ const PetCategory = () => {
                     </Link>
                 </div>
                 <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <Link to='/drama'>
+                    <Link to='/bird'>
                         <div className="px-4 shadow-xl shadow-slate-400 bg-white py-6 rounded-lg">
                             <img src="https://i.ibb.co/KbRCpdZ/Screenshot-2023-11-29-015406-removebg-preview.png" alt="" className="w-20 h-24 mx-auto" />
                             <h2 className="title-font font-medium text-3xl text-gray-900">BIRDS</h2>

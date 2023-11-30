@@ -114,12 +114,12 @@ const AddToPet = () => {
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, Add Book!"
+                        confirmButtonText: "Yes, Add Pet!"
                     }).then((result) => {
                         if (result.isConfirmed) {
                             Swal.fire({
                                 title: "Added!",
-                                text: "Your Book has been Added.",
+                                text: "Your Pet has been Added.",
                                 icon: "success"
                             });
                         }

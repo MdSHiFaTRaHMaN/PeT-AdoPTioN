@@ -1,11 +1,51 @@
+import { useContext } from "react";
+import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/Authprovider";
+import Swal from "sweetalert2";
 
 const PetDetails = () => {
     const petDetails = useLoaderData();
+    const { user } = useContext(AuthContext)
     const { id } = useParams();
     const idInt = id;
     const pet = petDetails.find((details) => details._id === idInt);
-    const { name, image, color, age, gender, location, category, discription, longDescription } = pet;
+    const { email, name, image, color, age, gender, location, category, discription, longDescription } = pet;
+    const [isOpen, setIsOpen] = useState(false);
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+    const handleAdoptUser = e => {
+        e.preventDefault();
+        const form = e.target;
+
+        const adopterEmail = user.email;
+        const userName = user.displayName;
+        const number = form.number.value;
+        const address = form.address.value;
+
+        const addToAdopt = {email, adopterEmail,userName, number, address, image, category, color,name}
+        console.log(addToAdopt)
+        fetch('http://localhost:5000/request', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body : JSON.stringify(addToAdopt)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              setIsOpen(false);
+        })
+    }
     return (
         <section className="">
             <div className="container px-6 py-10 w-10/12 mx-auto">
@@ -48,7 +88,7 @@ const PetDetails = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <button className="btn bg-purple-900 text-white hover:bg-purple-700 w-full">Apply To Adopt</button>
+                        <button onClick={() => setIsOpen(true)} className="btn bg-purple-900 text-white hover:bg-purple-700 w-full">Apply To Adopt</button>
                     </div>
                 </div>
                 <div className="mt-10 bg-white p-5 rounded">
@@ -116,6 +156,104 @@ const PetDetails = () => {
                     <div className="divider"></div>
                     <h2 className="text-xl font-semibold text-black my-4">Known Health Issues</h2>
                 </div>
+            </div>
+            <div className="relative flex justify-center">
+
+                {isOpen && (
+                    <div
+                        className="fixed inset-0 z-10 overflow-y-auto"
+                        aria-labelledby="modal-title"
+                        role="dialog"
+                        aria-modal="true"
+                    >
+                        <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                            <span className="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">
+                                &#8203;
+                            </span>
+
+                            <div className="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-sm sm:p-6 sm:align-middle">
+                                <h2>Enter Your Infomation</h2>
+                                <form className="mt-4" onSubmit={handleAdoptUser}>
+                                    <div>
+                                        <label htmlFor="emails-list" className="text-sm text-gray-700 ">
+                                            Your Name
+                                        </label>
+
+                                        <label className="block mt-3" htmlFor="email">
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
+                                                value={user?.displayName}
+                                                className="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+                                            />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="emails-list" className="text-sm text-gray-700">
+                                            Email address
+                                        </label>
+
+                                        <label className="block mt-3" htmlFor="email">
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                id="email"
+                                                value={user.email}
+                                                placeholder="user@email.xyz"
+                                                className="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+                                            />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="emails-list" className="text-sm text-gray-700 ">
+                                            Phone Number
+                                        </label>
+
+                                        <label className="block mt-3" htmlFor="email">
+                                            <input
+                                                type="text"
+                                                name="number"
+                                                placeholder="0170011-2233"
+                                                className="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+                                            />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="emails-list" className="text-sm text-gray-700">
+                                           Your Parmanant Address
+                                        </label>
+
+                                        <label className="block mt-3" htmlFor="email">
+                                            <input
+                                                type="text"
+                                                name="address"
+                                                placeholder="Your Home Address..."
+                                                className="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="mt-4 sm:flex sm:items-center sm:-mx-2">
+                                        <button
+                                            type="button"
+                                            onClick={closeModal}
+                                            className="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2  hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
+                                        >
+                                            Cancel
+                                        </button>
+
+                                        <button
+                                            type="submit"
+                                            className="w-full px-4 py-2 mt-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md sm:mt-0 sm:w-1/2 sm:mx-2 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+                                        >
+                                            Send invites
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );

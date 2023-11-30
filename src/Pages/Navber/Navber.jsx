@@ -20,7 +20,7 @@ const Navber = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-white rounded-box w-72">
                             <NavLink to='/'><a>Home</a></NavLink>
                             <NavLink to='/petList'><a>Pet Listing</a></NavLink>
-                            <NavLink to='/allBooks'><a>DonationCampaigns</a></NavLink>
+                            <NavLink to='/Campaign'><a>DonationCampaigns</a></NavLink>
                         </ul>
                     </div>
                     <div className='flex items-center'>
@@ -33,7 +33,7 @@ const Navber = () => {
                     <ul className="menu menu-horizontal text-xl text-white gap-5 px-1 items-center">
                         <NavLink to='/'><a>Home</a></NavLink>
                         <NavLink to='/petList'><a>Pet Listing</a></NavLink>
-                        <NavLink to='/allBooks'><a>DonationCampaigns</a></NavLink>
+                        <NavLink to='/Campaign'><a>DonationCampaigns</a></NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -54,7 +54,7 @@ const Navber = () => {
                                         </div>
                                         <div className="divider"></div>
                                     </a>
-                                    <Link to="/dashboard/myPet">
+                                    <Link to="/dashboard/userInfo">
                                         <a className="flex items-center ml-2 p-3 text-sm  text-blue-900 capitalize transition-colors duration-300 transform hover:bg-gray-300 hover:rounded-xl">
                                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -66,7 +66,6 @@ const Navber = () => {
                                             </span>
                                         </a>
                                     </Link>
-                                    {/* <li><a>DeshBoard</a></li> */}
                                     <a onClick={handleSignOut} className="flex items-center p-3 text-sm  text-blue-900 capitalize transition-colors duration-300 transform hover:bg-gray-300 hover:rounded-xl">
                                         <svg className="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M19 21H10C8.89543 21 8 20.1046 8 19V15H10V19H19V5H10V9H8V5C8 3.89543 8.89543 3 10 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM12 16V13H3V11H12V8L17 12L12 16Z" fill="currentColor"></path>

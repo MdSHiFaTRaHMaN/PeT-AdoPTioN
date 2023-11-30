@@ -12,6 +12,18 @@ import DogCategory from "../Pages/PetCategory/DogCategory/DogCategory";
 import CatCategory from "../Pages/PetCategory/CatCategory/CatCategory";
 import RabbitCategory from "../Pages/PetCategory/RabbitCategory/RabbitCategory";
 import UpdatePet from "../Components/UpdatePet/UpdatePet"
+import BirdCategory from "../Pages/PetCategory/BirdCategory/BirdCategory";
+import DonationCampaign from "../Components/DonationCampaign/DonationCampaign";
+import Campaign from "../DashBoard/AddDonationCampaign/Campaign";
+import CampaignDetails from "../Components/DonationCampaign/CampaignDetails/CampaignDetails";
+import MyDonetion from "../DashBoard/MyDonetion/MyDonetion";
+import MyDonetionCampaign from "../DashBoard/MyDonetionCampaign/MyDonetionCampaign";
+import UpdateCampaign from "../Components/UpdateCampaign/UpdateCampaign";
+import PrivetRoute from "./PrivetRoute";
+import AdoptRequest from "../DashBoard/AdoptRequest/AdoptRequest";
+import AlUserInfo from "../Components/AdminDashboard/AlUserInfo/AlUserInfo";
+import AllPetPost from "../Components/AdminDashboard/AllPetPost/AllPetPost";
+import AlpostCampaign from "../Components/AdminDashboard/AlPostCampaign/AlpostCampaign";
 
 const Router = createBrowserRouter([
     {
@@ -32,45 +44,90 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/petDetails/:id',
-                element: <PetDetails></PetDetails>,
+                element: <PrivetRoute><PetDetails></PetDetails></PrivetRoute>,
                 loader: () => fetch(`http://localhost:5000/pet`)
             },
             {
                 path: '/petList',
-                element: <PetList></PetList>,
+                element: <PrivetRoute><PetList></PetList></PrivetRoute>,
                 loader: () => fetch(`http://localhost:5000/pet`)
             },
             {
                 path: '/dog',
-                element: <DogCategory></DogCategory>
+                element: <PrivetRoute><DogCategory></DogCategory></PrivetRoute>
             },
             {
                 path: '/cat',
-                element: <CatCategory></CatCategory>
+                element: <PrivetRoute><CatCategory></CatCategory></PrivetRoute>
             },
             {
                 path: '/rabbit',
-                element: <RabbitCategory></RabbitCategory>
+                element: <PrivetRoute><RabbitCategory></RabbitCategory></PrivetRoute>
             },
             {
-                path: '/updatePet/:id',
-                element: <UpdatePet></UpdatePet>,
-                loader: ({params}) => fetch(`http://localhost:5000/pet/${params.id}`)
+                path: '/bird',
+                element: <PrivetRoute><BirdCategory></BirdCategory></PrivetRoute>
+            },
+            {
+                path: '/Campaign',
+                element: <PrivetRoute><DonationCampaign></DonationCampaign></PrivetRoute>
+            },
+            {
+                path: '/Campaign/:id',
+                element:<PrivetRoute> <CampaignDetails></CampaignDetails></PrivetRoute>,
+                loader: () => fetch(`http://localhost:5000/campaign`)
             }
-
         ]
     },
     {
         path: 'dashBoard',
-        element: <DashBoardLayout></DashBoardLayout>,
+        element: <PrivetRoute><DashBoardLayout></DashBoardLayout></PrivetRoute>,
         children: [
             {
                 path: "myPet",
-                element: <MyAddedPet></MyAddedPet>
+                element: <PrivetRoute><MyAddedPet></MyAddedPet></PrivetRoute>
             },
             {
                 path: "addToPet",
-                element: <AddToPet></AddToPet>
+                element: <PrivetRoute><AddToPet></AddToPet></PrivetRoute>
+            },
+            {
+                path: 'updatePet/:id',
+                element: <PrivetRoute><UpdatePet></UpdatePet></PrivetRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/pet/${params.id}`)
+            },
+            {
+                path: 'createCampaign',
+                element: <PrivetRoute><Campaign></Campaign></PrivetRoute>
+            },
+            {
+                path:'myDonetion',
+                element: <PrivetRoute><MyDonetion></MyDonetion></PrivetRoute>
+            },
+            {
+                path: 'myCampaignPost',
+                element: <PrivetRoute><MyDonetionCampaign></MyDonetionCampaign></PrivetRoute>
+            },
+            {
+                path: 'CampaignPost/:id',
+                element: <PrivetRoute><UpdateCampaign></UpdateCampaign></PrivetRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+            },
+            {
+                path: 'AdoptRequest',
+                element: <PrivetRoute><AdoptRequest></AdoptRequest></PrivetRoute>
+            },
+            {
+                path: 'userInfo',
+                element: <PrivetRoute><AlUserInfo></AlUserInfo></PrivetRoute>,
+            },
+            {
+                path: 'allPostedPet',
+                element:<PrivetRoute><AllPetPost></AllPetPost></PrivetRoute>,
+            },
+            {
+                path: 'allPostedCampaign',
+                element: <PrivetRoute><AlpostCampaign></AlpostCampaign></PrivetRoute>
             }
         ]
     }

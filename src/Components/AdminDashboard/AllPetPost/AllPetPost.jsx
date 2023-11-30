@@ -1,20 +1,15 @@
-import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { AuthContext } from "../../AuthProvider/Authprovider";
-import PetTable from "./PetTable";
+import PostCard from "./PostCard";
 import Swal from "sweetalert2";
 
-const MyAddedPet = () => {
-    const { user } = useContext(AuthContext)
-    const [myPet, setMyPet] = useState([]);
-
+const AllPetPost = () => {
+    const [allPost, setAllPost] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/pet').
-            then(res => res.json())
-            .then(data => setMyPet(data))
-    }, []);
-    
+        fetch("http://localhost:5000/pet")
+            .then(res => res.json())
+            .then(data => setAllPost(data));
+    }, [])
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -25,7 +20,7 @@ const MyAddedPet = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-             if(result.isConfirmed){
+            if (result.isConfirmed) {
                 fetch(`http://localhost:5000/pet/${id}`, {
                     method: 'DELETE'
                 })
@@ -38,19 +33,17 @@ const MyAddedPet = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            const remaining = myPet.filter(borrow => borrow._id !== id);
-                            setMyPet(remaining);
+                            const remaining = allPost.filter(borrow => borrow._id !== id);
+                            setAllPost(remaining);
                         }
-                    }) 
-             }
+                    })
+            }
         });
     }
-    const myPetPost = myPet.filter(pet => pet.email === user.email);
-    console.log(myPetPost)
     return (
         <div>
             <section className=" w-[1200px]">
-                <h2 className="text-3xl text-purple-600 font-bold text-center">Your Added Pets Total: {myPetPost.length}</h2>
+                <h2 className="text-3xl text-purple-600 font-bold text-center">Your Added Pets Total: {allPost.length}</h2>
                 <section className="container px-4 mx-auto min-h-screen" >
 
                     <div className="flex flex-col mt-6">
@@ -68,9 +61,6 @@ const MyAddedPet = () => {
                                                         <span>Image</span>
                                                     </div>
                                                 </th>
-
-
-
                                                 <th scope="col" className="px-4 py-3.5 text-sm font-semibold text-left rtl:text-right text-black">
                                                     <button className="flex items-center gap-x-2">
                                                         <span>Pet Age</span>
@@ -93,12 +83,12 @@ const MyAddedPet = () => {
                                         </thead>
                                         <tbody className="bg-white divide-y divide-gray-200 ">
                                             {
-                                                myPetPost.map((pet, index) => <PetTable
-                                                    key={pet._id}
+                                                allPost.map((post, index) => <PostCard
+                                                    key={post._id}
                                                     serialNumber={index + 1}
-                                                    pet={pet}
-                                                handleDelete={handleDelete}
-                                                ></PetTable>)
+                                                    post={post}
+                                                    handleDelete={handleDelete}
+                                                ></PostCard>)
                                             }
                                         </tbody>
                                     </table>
@@ -113,4 +103,4 @@ const MyAddedPet = () => {
     );
 };
 
-export default MyAddedPet;
+export default AllPetPost;

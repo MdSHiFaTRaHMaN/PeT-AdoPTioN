@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 
-const PetTable = ({ pet, serialNumber, handleDelete }) => {
-    const { image, name, age, location, category, color, currentDateTime, gender, _id } = pet;
+const CampaignTable = ({campaignPost, handleDelete}) => {
+  const {image, name, lastDate, Max, total, _id} = campaignPost;
+  
     return (
         <tr className="bg-white">
-            <td>
-                <span className="text-white px-2 py-1 ml-3 rounded-full bg-purple-600">{serialNumber}</span>
-            </td>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                 <div className="inline-flex items-center gap-x-3">
 
@@ -15,30 +13,22 @@ const PetTable = ({ pet, serialNumber, handleDelete }) => {
                         <div>
                             <h2 className=" text-gray-800 font-bold ">{name}</h2>
                             <p className="text-sm font-normal text-gray-600 dark:text-gray-400"></p>
-                            <h6 className="text-red-400 font-bold text-lx">{category}</h6>
-                            <h6 className="text-fuchsia-900 font-bold text-lx">{gender}</h6>
                         </div>
                     </div>
                 </div>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                <p className="px-3 py-3 text-xs text-white rounded-full dark:bg-purple-800 bg-blue-100/60">{age} Year Old</p>
+                <p className="px-3 py-3 text-xs text-white rounded-full dark:bg-purple-800 bg-blue-100/60">{lastDate} Year Old</p>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                <p className="px-3 py-3 text-xs text-white rounded-full dark:bg-blue-800 bg-blue-100/60">{currentDateTime} </p>
+                <p className="px-3 py-3 text-xs text-white rounded-full dark:bg-blue-800 bg-blue-100/60">{Max} Taka</p>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                <p className="px-3 py-3 text-xs text-white rounded-full dark:bg-green-600 bg-pink-100/60">{location}</p>
-            </td>
-            <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <div className="flex items-center gap-x-2">
-                    <p className="px-3 py-1 text-xs text-white rounded-full dark:bg-indigo-800 bg-indigo-100/60">{color}</p>
-
-                </div>
+                <p className="px-3 py-3 text-xs text-white rounded-full dark:bg-green-600 bg-pink-100/60">{total} Taka</p>
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-6">
-                    <Link to={`/dashBoard/updatePet/${_id}`}>
+                    <Link to={`/dashBoard/CampaignPost/${_id}`}>
                         <button className="text-gray-500 transition-colors duration-200  dark:text-blue-700 hover:text-purple-950 focus:outline-none">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
                                 <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
@@ -58,4 +48,4 @@ const PetTable = ({ pet, serialNumber, handleDelete }) => {
     );
 };
 
-export default PetTable;
+export default CampaignTable;

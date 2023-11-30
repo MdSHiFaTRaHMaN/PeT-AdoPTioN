@@ -8,7 +8,7 @@ const MyDonetion = () => {
     const [myDonetion, setMyDonetion] = useState([]);
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch("http://localhost:5000/myCampaign")
+        fetch("https://final-projact-server.vercel.app/myCampaign")
             .then(res => res.json())
             .then(data => setMyDonetion(data));
     }, [])
@@ -24,7 +24,7 @@ const MyDonetion = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
              if(result.isConfirmed){
-                fetch(`http://localhost:5000/myCampaign/${id}`, {
+                fetch(`https://final-projact-server.vercel.app/myCampaign/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

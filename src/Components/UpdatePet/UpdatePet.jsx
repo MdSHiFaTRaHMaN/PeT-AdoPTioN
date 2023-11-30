@@ -86,7 +86,7 @@ const UpdatePet = () => {
         const updatePet = { name, image, age, location, category, discription, longDescription, color, gender }
         console.log(updatePet)
 
-        fetch(`http://localhost:5000/pet/${_id}`, {
+        fetch(`https://final-projact-server.vercel.app/pet/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

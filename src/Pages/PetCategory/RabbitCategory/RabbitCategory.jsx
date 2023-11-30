@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const RabbitCategory = () => {
     const [totalRabbit, setTotalRabbit] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/pet")
+        fetch("https://final-projact-server.vercel.app/pet")
             .then(res => res.json())
             .then(data => setTotalRabbit(data))
     }, [])

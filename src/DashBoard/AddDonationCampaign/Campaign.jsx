@@ -19,7 +19,7 @@ const Campaign = () => {
     const petCampaign = { name, image, lastDate, Max, discription, longDescription, total, email };
     console.log(petCampaign);
 
-    fetch('http://localhost:5000/campaign', {
+    fetch('https://final-projact-server.vercel.app/campaign', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

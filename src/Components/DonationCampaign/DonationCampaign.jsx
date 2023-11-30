@@ -6,7 +6,7 @@ const DonationCampaign = () => {
     const [selectedRange, setSelectedRange] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/campaign")
+        fetch("https://final-projact-server.vercel.app/campaign")
             .then((res) => res.json())
             .then((data) => setAllCampaign(data));
     }, []);

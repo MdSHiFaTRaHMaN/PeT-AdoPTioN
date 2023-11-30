@@ -90,7 +90,7 @@ const AddToPet = () => {
         const petDetails = { name, image, age, location, category, discription, longDescription, color, gender, email, displayName, currentDateTime };
         console.log(petDetails);
 
-        fetch('http://localhost:5000/pet', {
+        fetch('https://final-projact-server.vercel.app/pet', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

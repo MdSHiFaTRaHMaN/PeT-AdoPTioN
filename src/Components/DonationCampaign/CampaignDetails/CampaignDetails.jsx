@@ -14,7 +14,7 @@ const CampaignDetails = () => {
         const userEmail = user.email;
         const myDonetion = {name,image,total,userEmail,email};
         console.log(myDonetion)
-        fetch('http://localhost:5000/myCampaign', {
+        fetch('https://final-projact-server.vercel.app/myCampaign', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

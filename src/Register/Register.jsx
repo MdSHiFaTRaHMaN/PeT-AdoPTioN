@@ -46,7 +46,7 @@ const Register = () => {
     const userInfo = {email, password, displayName} ;
     console.log(email, password, displayName)
 
-    fetch('http://localhost:5000/allUser', {
+    fetch('https://final-projact-server.vercel.app/allUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

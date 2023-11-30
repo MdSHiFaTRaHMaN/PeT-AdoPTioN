@@ -28,7 +28,7 @@ const PetDetails = () => {
 
         const addToAdopt = {email, adopterEmail,userName, number, address, image, category, color,name}
         console.log(addToAdopt)
-        fetch('http://localhost:5000/request', {
+        fetch('https://final-projact-server.vercel.app/request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

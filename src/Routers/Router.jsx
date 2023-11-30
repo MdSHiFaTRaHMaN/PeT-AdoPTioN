@@ -45,12 +45,12 @@ const Router = createBrowserRouter([
             {
                 path: '/petDetails/:id',
                 element: <PrivetRoute><PetDetails></PetDetails></PrivetRoute>,
-                loader: () => fetch(`http://localhost:5000/pet`)
+                loader: () => fetch(`https://final-projact-server.vercel.app/pet`)
             },
             {
                 path: '/petList',
                 element: <PrivetRoute><PetList></PetList></PrivetRoute>,
-                loader: () => fetch(`http://localhost:5000/pet`)
+                loader: () => fetch(`https://final-projact-server.vercel.app/pet`)
             },
             {
                 path: '/dog',
@@ -75,7 +75,7 @@ const Router = createBrowserRouter([
             {
                 path: '/Campaign/:id',
                 element:<PrivetRoute> <CampaignDetails></CampaignDetails></PrivetRoute>,
-                loader: () => fetch(`http://localhost:5000/campaign`)
+                loader: () => fetch(`https://final-projact-server.vercel.app/campaign`)
             }
         ]
     },
@@ -94,7 +94,7 @@ const Router = createBrowserRouter([
             {
                 path: 'updatePet/:id',
                 element: <PrivetRoute><UpdatePet></UpdatePet></PrivetRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/pet/${params.id}`)
+                loader: ({params}) => fetch(`https://final-projact-server.vercel.app/pet/${params.id}`)
             },
             {
                 path: 'createCampaign',
@@ -111,7 +111,7 @@ const Router = createBrowserRouter([
             {
                 path: 'CampaignPost/:id',
                 element: <PrivetRoute><UpdateCampaign></UpdateCampaign></PrivetRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+                loader: ({params}) => fetch(`https://final-projact-server.vercel.app/campaign/${params.id}`)
             },
             {
                 path: 'AdoptRequest',

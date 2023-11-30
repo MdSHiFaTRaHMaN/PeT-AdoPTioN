@@ -7,7 +7,7 @@ const ShowPet = () => {
     const petsPerPage = 6;
 
     useEffect(() => {
-        fetch("http://localhost:5000/pet")
+        fetch("https://final-projact-server.vercel.app/pet")
             .then((res) => res.json())
             .then((data) => setPets(data));
     }, [])

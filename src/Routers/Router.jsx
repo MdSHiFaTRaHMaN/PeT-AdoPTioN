@@ -45,12 +45,12 @@ const Router = createBrowserRouter([
             {
                 path: '/petDetails/:id',
                 element: <PrivetRoute><PetDetails></PetDetails></PrivetRoute>,
-                loader: () => fetch(`https://final-projact-server.vercel.app/pet`)
+                loader: () => fetch(`https://pet-adopt-server.onrender.com/pet`)
             },
             {
                 path: '/petList',
                 element: <PrivetRoute><PetList></PetList></PrivetRoute>,
-                loader: () => fetch(`https://final-projact-server.vercel.app/pet`)
+                loader: () => fetch(`https://pet-adopt-server.onrender.com/pet`)
             },
             {
                 path: '/dog',
@@ -75,7 +75,7 @@ const Router = createBrowserRouter([
             {
                 path: '/Campaign/:id',
                 element:<PrivetRoute> <CampaignDetails></CampaignDetails></PrivetRoute>,
-                loader: () => fetch(`https://final-projact-server.vercel.app/campaign`)
+                loader: () => fetch(`https://pet-adopt-server.onrender.com/campaign`)
             }
         ]
     },
@@ -94,7 +94,7 @@ const Router = createBrowserRouter([
             {
                 path: 'updatePet/:id',
                 element: <PrivetRoute><UpdatePet></UpdatePet></PrivetRoute>,
-                loader: ({params}) => fetch(`https://final-projact-server.vercel.app/pet/${params.id}`)
+                loader: ({params}) => fetch(`https://pet-adopt-server.onrender.com/pet/${params.id}`)
             },
             {
                 path: 'createCampaign',
@@ -111,7 +111,7 @@ const Router = createBrowserRouter([
             {
                 path: 'CampaignPost/:id',
                 element: <PrivetRoute><UpdateCampaign></UpdateCampaign></PrivetRoute>,
-                loader: ({params}) => fetch(`https://final-projact-server.vercel.app/campaign/${params.id}`)
+                loader: ({params}) => fetch(`https://pet-adopt-server.onrender.com/campaign/${params.id}`)
             },
             {
                 path: 'AdoptRequest',

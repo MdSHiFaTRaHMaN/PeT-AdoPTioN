@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const AllPetPost = () => {
     const [allPost, setAllPost] = useState([]);
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/pet")
+        fetch("https://pet-adopt-server.onrender.com/pet")
             .then(res => res.json())
             .then(data => setAllPost(data));
     }, [])
@@ -21,7 +21,7 @@ const AllPetPost = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://final-projact-server.vercel.app/pet/${id}`, {
+                fetch(`https://pet-adopt-server.onrender.com/pet/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -19,7 +19,7 @@ const Campaign = () => {
     const petCampaign = { name, image, lastDate, Max, discription, longDescription, total, email };
     console.log(petCampaign);
 
-    fetch('https://final-projact-server.vercel.app/campaign', {
+    fetch('https://pet-adopt-server.onrender.com/campaign', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

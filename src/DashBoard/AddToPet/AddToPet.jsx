@@ -90,7 +90,7 @@ const AddToPet = () => {
         const petDetails = { name, image, age, location, category, discription, longDescription, color, gender, email, displayName, currentDateTime };
         console.log(petDetails);
 
-        fetch('https://final-projact-server.vercel.app/pet', {
+        fetch('https://pet-adopt-server.onrender.com/pet', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

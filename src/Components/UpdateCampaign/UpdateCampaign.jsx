@@ -23,7 +23,7 @@ const UpdateCampaign = () => {
 
         const updateCampaign = { name, email, image, lastDate, Max, total, discription, longDescription }
         console.log(updateCampaign);
-        fetch(`https://final-projact-server.vercel.app/campaign/${_id}`, {
+        fetch(`https://pet-adopt-server.onrender.com/campaign/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

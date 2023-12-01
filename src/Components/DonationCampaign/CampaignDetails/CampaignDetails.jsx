@@ -14,7 +14,7 @@ const CampaignDetails = () => {
         const userEmail = user.email;
         const myDonetion = {name,image,total,userEmail,email};
         console.log(myDonetion)
-        fetch('https://final-projact-server.vercel.app/myCampaign', {
+        fetch('https://pet-adopt-server.onrender.com/myCampaign', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

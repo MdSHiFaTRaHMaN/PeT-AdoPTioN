@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const DogCategory = () => {
     const [totalPet, setTotalPet] = useState([]);
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/pet")
+        fetch("https://pet-adopt-server.onrender.com/pet")
             .then(res => res.json())
             .then(data => setTotalPet(data))
     }, [])

@@ -6,7 +6,7 @@ const DonationCampaign = () => {
     const [selectedRange, setSelectedRange] = useState(null);
 
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/campaign")
+        fetch("https://pet-adopt-server.onrender.com/campaign")
             .then((res) => res.json())
             .then((data) => setAllCampaign(data));
     }, []);

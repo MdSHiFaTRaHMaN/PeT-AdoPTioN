@@ -10,7 +10,7 @@ const MyAddedPet = () => {
     const [myPet, setMyPet] = useState([]);
 
     useEffect(() => {
-        fetch('https://final-projact-server.vercel.app/pet').
+        fetch('https://pet-adopt-server.onrender.com/pet').
             then(res => res.json())
             .then(data => setMyPet(data))
     }, []);
@@ -26,7 +26,7 @@ const MyAddedPet = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
              if(result.isConfirmed){
-                fetch(`https://final-projact-server.vercel.app/pet/${id}`, {
+                fetch(`https://pet-adopt-server.onrender.com/pet/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

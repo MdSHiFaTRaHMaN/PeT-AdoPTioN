@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const BirdCategory = () => {
     const [totalBird, setTotalBird] = useState([]);
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/pet")
+        fetch("https://pet-adopt-server.onrender.com/pet")
             .then(res => res.json())
             .then(data => setTotalBird(data))
     }, [])

@@ -9,7 +9,7 @@ const AdoptRequest = () => {
     const { user } = useContext(AuthContext)
     const [request, setRequest] = useState([]);
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/request")
+        fetch("https://pet-adopt-server.onrender.com/request")
             .then(res => res.json())
             .then(data => setRequest(data))
     }, []);
@@ -24,7 +24,7 @@ const AdoptRequest = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://final-projact-server.vercel.app/request/${id}`, {
+                fetch(`https://pet-adopt-server.onrender.com/request/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

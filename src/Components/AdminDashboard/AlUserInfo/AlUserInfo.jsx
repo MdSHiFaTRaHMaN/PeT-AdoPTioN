@@ -8,7 +8,7 @@ const AlUserInfo = () => {
     const [users, setUsers] = useState([]);
     const adminUser = user.email === 'imadmin@gmail.com'
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/allUser")
+        fetch("https://pet-adopt-server.onrender.com/allUser")
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])

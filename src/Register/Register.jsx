@@ -46,7 +46,7 @@ const Register = () => {
     const userInfo = {email, password, displayName} ;
     console.log(email, password, displayName)
 
-    fetch('https://final-projact-server.vercel.app/allUser', {
+    fetch('https://pet-adopt-server.onrender.com/allUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

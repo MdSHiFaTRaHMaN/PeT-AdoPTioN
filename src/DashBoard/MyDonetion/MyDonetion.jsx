@@ -8,7 +8,7 @@ const MyDonetion = () => {
     const [myDonetion, setMyDonetion] = useState([]);
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch("https://final-projact-server.vercel.app/myCampaign")
+        fetch("https://pet-adopt-server.onrender.com/myCampaign")
             .then(res => res.json())
             .then(data => setMyDonetion(data));
     }, [])
@@ -24,7 +24,7 @@ const MyDonetion = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
              if(result.isConfirmed){
-                fetch(`https://final-projact-server.vercel.app/myCampaign/${id}`, {
+                fetch(`https://pet-adopt-server.onrender.com/myCampaign/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
